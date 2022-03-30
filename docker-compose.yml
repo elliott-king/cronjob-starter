@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  one-time:
+    labels: 
+      shipyard.job: true
+    build: '.'
+    command: 'sh date.sh'
+
+  cronjob:
+    labels:
+      shipyard.job: true
+      shipyard.job.schedule: '*/2 * * * *'
+    build: '.'
+    command: 'sh date.sh'
